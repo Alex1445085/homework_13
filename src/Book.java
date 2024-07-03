@@ -25,7 +25,20 @@ public class Book {
             System.out.println("Ошибка ввода года издания.");
         }
     }
+    @Override
     public String toString() {
         return "Книга - " + nameBook + ", автор - " + author + ", год издания - " + publishingYear;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if(this.getClass() != obj.getClass()) {
+            return false;
+        }
+        if(obj != null && ((Book) obj).getNameBook().equals(this.nameBook) &&
+                ((Author)((Book) obj).getAuthor()).equals((this.author)) &&
+                ((Book) obj).getPublishingYear() == (this.getPublishingYear())) {
+            return true;
+        }
+        return false;
     }
 }

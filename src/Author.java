@@ -16,4 +16,15 @@ public class Author {
     public String toString() {
         return authorFirstName + authorSecondName;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if(this.getClass() != obj.getClass()) {
+            return false;
+        }
+        if(obj != null && ((Author) obj).getAuthorFirstName().equals(this.authorFirstName) &&
+                ((Author) obj).getAuthorSecondName().equals(this.authorSecondName)) {
+            return true;
+        }
+        return false;
+    }
 }
