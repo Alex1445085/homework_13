@@ -1,4 +1,7 @@
+import java.util.Objects;
+
 public class Book {
+
     private String nameBook;
     private Author author;
     private int publishingYear;
@@ -31,14 +34,18 @@ public class Book {
     }
     @Override
     public boolean equals(Object obj) {
-        if(this.getClass() != obj.getClass()) {
-            return false;
-        }
-        if(obj != null && ((Book) obj).getNameBook().equals(this.nameBook) &&
-                ((Author)((Book) obj).getAuthor()).equals((this.author)) &&
+ //       System.out.println(obj.hashCode() + ", " + this.hashCode());
+        if (obj.hashCode() != this.hashCode()) return false;
+        if (this.getClass() != obj.getClass() || obj == null) return false;
+        if (((Book) obj).getNameBook().equals(this.nameBook) &&
+                (((Book) obj).getAuthor()).equals((this.author)) &&
                 ((Book) obj).getPublishingYear() == (this.getPublishingYear())) {
             return true;
         }
         return false;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameBook, publishingYear);
     }
 }

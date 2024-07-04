@@ -14,7 +14,7 @@ public class Main {
         book2.setPublishingYear(2012);
         System.out.println(book2);
 
-        System.out.println(book3);
-        System.out.println(book4.equals(book3));
+        System.out.println(book3 + "\n");
+        System.out.println(book3.equals(book4));
     }
 }
